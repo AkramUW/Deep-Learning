@@ -16,7 +16,7 @@ X_test = X_test.astype('float32') # converting entries to floats
 X_train = X_train / 255.0
 X_test = X_test / 255.0
 
-y_train = np_utils.to_categorical(y_train) # converting the outputs to bimary matrix (similar to adjacency matrix but for the classes of the data set)
+y_train = np_utils.to_categorical(y_train) # converting the outputs to binary matrix (similar to adjacency matrix but for the classes of the data set)
 y_test = np_utils.to_categorical(y_test)
 
 # Building the NN
