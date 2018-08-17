@@ -16,7 +16,7 @@ X_test = X_test.astype('float32') # converting entries to floats
 X_train = X_train / 255.0
 X_test = X_test / 255.0
 
-y_train = np_utils.to_categorical(y_train) # converting the outputs to binary matrix (similar to adjacency matrix but for the classes of the data set)
+y_train = np_utils.to_categorical(y_train) # converting the outputs to binary matrix
 y_test = np_utils.to_categorical(y_test)
 
 # Building the NN
@@ -30,7 +30,8 @@ tower_2 = Conv2D(64, (5,5), padding='same', activation='relu')(tower_2)
 
 tower_3 = MaxPooling2D((3,3), strides=(1,1), padding='same')(input_img)
 tower_3 = Conv2D(64, (1,1), padding='same', activation='relu')(tower_3)
-# Notice here the different ways that we have altered the input and that we have recorded each in a global  varibale. Normally, in CNNs, you just have one global variable (input) that you keep processing and changing in the network to achieve the output.
+# Notice here the different ways that we have altered the input and that we have recorded each in a global  variable.
+# Normally, in CNNs, you just have one global variable (input) that you keep processing and changing in the network to achieve the output.
 # Padding is kept same throughout to be able to concatenate the layers
 
 output=keras.layers.concatenate([tower_1,tower_2,tower_3],axis=3)
