@@ -12,7 +12,7 @@ Let's say we have data from a Yes/No survey in terms of 1s and 0s, where 1 is ye
 3. Are you above 40 years of age ?
 4. Do you have any sort of heart disease ?
 
->*This is a purely hypothetical, just to add context to the data*
+>*This is purely hypothetical, just to add context to the data*
 
 The survey gave us the following data, each row represents one person's answers:
 
