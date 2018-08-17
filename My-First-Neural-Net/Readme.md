@@ -66,9 +66,9 @@ Now we got it all set, except for one part which is the [activation function](ht
 
 ### Training
 
-We now have everything we need to train our model, we're going to do use by feeding forward the input to our model, calculating the error then adjusting our weights to minimize the error at each instance. Let's take it step by step.
+We now have everything we need to train our model, we're going to do so by feeding forward the input to our model, calculating the error then adjusting our weights to minimize the error at each instance. Let's take it step by step.
 
-We're going to use 60,000 training instances to train our model, this means we're going to make our currently random synaptic weights better 60,000 times by minimizing the error at each instance. Then we'll have 3 layers in our neural net. 
+We're going to use 60,000 training instances to train our model, this means we're going to make our (currently) random synaptic weights better 60,000 times by minimizing the error at each instance. Then we'll have 3 layers in our neural net. 
 The first layer is our input
 The second layer is going to predict the output, by applying the sigmoid function to weighted sum of our input.
 The third layer is going to refine the prediction and spit out the output
@@ -80,10 +80,12 @@ The third layer is going to refine the prediction and spit out the output
 ```
 
 Now we have predicted the output, but did we really ? Let's see the error
+
 ` l2_error = Output - l2 `
-We're going to use this error to calculate an adjustment matrix or delta that we're going to use to see how far are we from the output and  to update our synaptic weights at each instance, this is called **Back Propagation**
+
+We're going to use this error to calculate an adjustment matrix or delta that we're going to use to see how far are we from the output, in order to update our synaptic weights at each instance, this is called **Back Propagation**
 ``` python 
-	 l2_delta = l2_error*sigmoid(l2,deriv=True)
+     l2_delta = l2_error*sigmoid(l2,deriv=True)
      l1_error = l2_delta.dot(syn1.T)
      l1_delta = l1_error * sigmoid(l1,deriv=True)
 
@@ -94,11 +96,12 @@ We're going to use this error to calculate an adjustment matrix or delta that we
 
 ### Testing
 
-Now we have done all the training for our model, we gave all the protein shakes, all the running, everything. Let's see how it would predict for an unseen case, which is a person who drinks 8 cups of water per day, eats more than 1500mg of salt per day but is under the age of 40. Let's make a matrix.
+Now we have done all the training for our model, we gave all it the protein shakes, done its workouts, everything. Let's see how it would predict for an unseen case, which is a person who drinks 8 cups of water per day, eats more than 1500mg of salt per day but is under the age of 40. Let's make a matrix.
 
 ` new_guy = np.array([[1,1,0]])`
 
 In order to predict we must first build a predictor function 
+
 ```python
 def predictor(X):
      l1 = sigmoid(np.dot(X,syn0))
